@@ -1,0 +1,73 @@
+﻿@model IEnumerable<BookingPlatform.Models.Resources>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container p-3">
+
+
+    <div class="row">
+
+        <div class="col-3">
+      <form method="get" class="d-flex" asp-action="Index">
+        <input class="form-control me-sm-2" type="text" placeholder="Search" spellcheck="false" data-ms-editor="true" value=" @ViewData["Getressourcedetails"]" name="suche" width="30%">
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+      
+      </form>
+        </div>
+        <div class="col-9 text-end">
+             <a asp-action="Create" class="btn btn-primary text-end">    <i class="bi bi-plus-circle"></i>&nbsp; Create Neue Ressource</a>
+        </div>
+    </div>
+
+        
+    
+
+<table class="table table-bordered table-striped" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayName("Image")
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td width="30%">
+                <img src="@item.ImageName" asp-append-version="true" width="50px" height="50px" />
+            </td>
+            <td width="30%">
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td  width="30%" >
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+                <td  width="30%" >
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            
+            <td>
+                <div class="w-75 btn-group" role="group" >
+                <a class="btn btn-success mx-2" asp-action="Edit" asp-route-id="@item.ResourceID"> Edit</a> 
+                <a class="btn btn-info mx-2" asp-action="Details" asp-route-id="@item.ResourceID">Details</a> 
+                <a class="btn btn-danger mx-2" asp-action="Delete" asp-route-id="@item.ResourceID">Delete</a>
+                </div>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</div>

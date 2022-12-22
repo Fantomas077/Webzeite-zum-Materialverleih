@@ -1,0 +1,63 @@
+﻿@model BookingPlatform.Models.Booking
+
+<style>
+    input[type=text]:focus 
+    {
+        border: 3px solid #555;
+        background: #F5F5F5
+    }
+</style>
+
+<div align="center">
+<form method="post">
+
+    <div class="border p-3 mt-4" style="max-width:400px;color:Alice">
+
+        <div class="row pb-2">
+            <h2 class="text" style="color:MintCream">Neue Buchung</h2>    
+            <hr />
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="StartDate" class="form-control btn-light" id="floatingInput" type="date" value="@DateTime.Today.ToString("d")"/>
+            <label for="floatingInput" asp-for="StartDate"></label>
+            <p style="text-align:left">
+              &nbsp <span asp-validation-for="StartDate" class="text-warning"></span>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="EndDate" class="form-control btn-light" id="floatingInput" type="date" value="@DateTime.Today.ToString("d")"/>
+            <label for="floatingInput" asp-for="EndDate"></label>        
+             <p style="text-align:left">
+              &nbsp  <span asp-validation-for="EndDate" class="text-warning" ></span>
+            </p>
+        </div>
+
+         <div class="form-floating mb-3">
+            <input asp-for="ResourceID" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="ResourceID"></label>
+
+            @*The line under is to manipulate please leave it hidden and dont delete it!*@
+            <input asp-for="ResourceID" hidden >
+            <p class="text" style="text-align:left;color:LightGreen">Diese Zahl ist die ID von der zur Buchung gewünschten Ressource</p> 
+        </input>
+        </div>
+        <input asp-for="MatrikelNr" hidden >
+        <input asp-for="BookingCondition" hidden >
+        <div style="text-align: center">
+            <div class="mb-2">
+                <button type="submit" class="btn btn-lg btn-info" style="width:230px">Buchen</button>
+            </div> 
+            <a asp-controller="User" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Hauptseite</a>
+        </div>
+    </div>
+</form>
+</div>
+
+@section Scripts
+{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

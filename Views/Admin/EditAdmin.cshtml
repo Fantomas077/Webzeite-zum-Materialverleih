@@ -1,0 +1,51 @@
+﻿@model BookingPlatform.Models.Admin
+
+<style>
+    input[type=text]:focus 
+    {
+        border: 3px solid #555;
+        background: #F5F5F5
+    }
+</style>
+
+<div align="center">
+<form method="post" asp-action="EditAdmin">
+    <div class="border p-3 mt-4" style="max-width:400px">
+        <div class="row pb-2">
+            <h2 class="text" style="color:MintCream">Admin Bearbeiten</h2>    
+            <hr />
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="Name" class="form-control btn-light" id="floatingInput" placeholder="Max Muster"/>
+            <label for="floatingInput" asp-for="Name"></label>
+            <p style="text-align:left">
+              &nbsp <span asp-validation-for="Name" class="text-warning"></span>
+            </p>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="AdminID" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="AdminID"></label>
+
+            @*The line under is to manipulate the edit action methode please leave it hidden and dont delete it!*@
+            <input asp-for="AdminID" hidden >
+            <p class="text" style="text-align:left;color:LightGreen">Admin ID kann nicht verändert werden. Falls das erwünscht ist, bitte löschen Sie den Admin und fügen Sie einen neuen Admin mit neuer ID hinzu!</p> 
+        </input>
+        </div>
+        
+        <div style="text-align: center">
+            <div class="mb-2">
+                <button type="submit" class="btn btn-lg btn-success" style="width:230px">Bearbeiten</button>
+            </div> 
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Admin Liste</a>
+        </div>
+    </div>
+</form>
+</div>
+
+@section Scripts
+{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

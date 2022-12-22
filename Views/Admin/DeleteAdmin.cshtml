@@ -1,0 +1,53 @@
+﻿@model BookingPlatform.Models.Admin
+
+<style>
+    input[type=text]:focus 
+    {
+        border: 3px solid #555;
+        background: #F5F5F5
+    }
+</style>
+
+<div align="center">
+<form method="post" asp-action="DeleteAdmin">
+    <div class="border p-3 mt-4" style="max-width:400px;);">
+        <div class="row pb-2">
+            <h2 class="text" style="color:MintCream">Admin Löschen</h2>    
+            <hr />
+        </div>
+        
+        <div class="text" style="color:#ff5100"><h5>Möchten Sie diesen Admin wirklich löschen?</h5></div>
+        
+        <div class="form-floating mb-3">
+            <input asp-for="Name" class="form-control btn-light" style="color:Azure" disabled id="floatingInput" placeholder="Max Muster"/>
+
+             @*The line under is to manipulate the delete action methode please leave it hidden and dont delete it!*@
+            <input asp-for="Name" hidden />
+            <label for="floatingInput" asp-for="Name"></label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input asp-for="AdminID" class="form-control btn-light" style="color:Azure" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            
+            @*The line under is to manipulate the edit action methode please leave it hidden and dont delete it!*@
+            <input asp-for="AdminID" hidden >
+            <label for="floatingInput" asp-for="AdminID"></label>
+        </input>
+        </div>
+
+        <div style="text-align: center">
+            <div class="mb-2">
+                <button type="submit" class="btn btn-lg btn-warning" style="width:230px">Löschen</button>
+            </div> 
+            <a asp-controller="Admin" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Admin Liste</a>
+        </div>
+    </div>
+</form>
+</div>
+
+@section Scripts
+{
+    @{
+    <partial name="_ValidationScriptsPartial" />
+    }
+}

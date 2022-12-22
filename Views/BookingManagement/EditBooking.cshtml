@@ -1,0 +1,79 @@
+﻿@model BookingPlatform.Models.Booking
+
+<div align="center">
+<form method="post" asp-action="EditBooking">
+     <div class="border p-3 mt-4" style="max-width:400px">
+        <div class="row pb-2">
+            <h2 class="text" style="color:MintCream">Buchungszustand Bearbeiten</h2>    
+            <hr />
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="BookingID" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="BookingID"></label>
+            <input asp-for="BookingID" hidden >
+             </input>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="MatrikelNr" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="MatrikelNr"></label>
+            <input asp-for="MatrikelNr" hidden >
+             </input>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="ResourceID" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="ResourceID"></label>
+            <input asp-for="ResourceID" hidden >
+             </input>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="StartDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="StartDate"></label>
+            <input asp-for="StartDate" hidden >
+             </input>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="EndDate" class="form-control btn-light" disabled id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="EndDate"></label>
+            <input asp-for="EndDate" hidden >
+             </input>
+        </div>
+        <div class="form-floating mb-3">
+            <input asp-for="BookingCondition" class="form-control btn-light" id="floatingInput" placeholder="s0XXXXXX" />
+            <label for="floatingInput" asp-for="BookingCondition"></label>
+             
+        </div>
+
+         @*<fieldset class="form-group">
+      <legend class="mt-4">Buchungszustand</legend>
+      <div class="form-check">
+        <input asp-for="BookingCondition" class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios1" value="gebucht" checked="" />
+        <label class="form-check-label" style="text:left" for="optionsRadios1">
+         gebucht
+        </label>
+      </div>
+      <div class="form-check">
+        <input asp-for="BookingCondition" class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios2" value="abgeholt" checked="" />
+        <label class="form-check-label" for="optionsRadios2">
+         abgeholt
+        </label>
+      </div>
+       <div class="form-check">
+        <input asp-for="BookingCondition" class="form-check-input" type="radio" name="optionsRadios" id="optionsRadios3" value="zurückgegeben" checked="" />
+        <label class="form-check-label" for="optionsRadios3">
+         zurückgegeben
+        </label>
+      </div>
+    </fieldset>*@
+    
+
+      
+         <div style="text-align: center">
+            <div class="mb-2">
+                <button type="submit" class="btn btn-lg btn-success" style="width:230px">Bearbeiten</button>
+            </div> 
+            <a asp-controller="BookingManagement" asp-action="Index" class="btn btn-lg btn-outline-light" style="width:230px"> Zurück zur Buchungen</a>
+        </div>
+
+      </div>
+</form>
+</div>

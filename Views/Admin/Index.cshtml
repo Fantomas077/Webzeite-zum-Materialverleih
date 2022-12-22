@@ -1,0 +1,70 @@
+﻿@model IEnumerable<Admin>
+@{
+    ViewData["Title"] = "Index";
+}
+<head>
+    <style>
+        .header {
+            position: sticky;
+            top:0;
+        }
+         body {
+             height: 800px;
+         }
+    </style>
+<link rel="stylesheet" href="extensions/sticky-header/bootstrap-table-sticky-header.css">
+<script src="extensions/sticky-header/bootstrap-table-sticky-header.js"></script>
+</head>
+
+
+<body>
+    <div class="container p-3">
+    <div class="row  pt-4">
+        <div class="col-6">
+            <h1 class="text-light">Admins Liste</h1>
+            <hr />
+            </div>
+            <div class="col-6 text-end">
+            <a asp-controller="Admin" asp-action="CreateAdmin" class="btn btn-outline-info">
+                <i class="bi bi-person-plus"></i> &nbsp Admin Hinzufügen</a>
+        </div>
+        </div>
+        
+<table class="table table-hover table-bordered" style="width:100%">
+  <thead style="position: sticky;top: 0" class="thead-dark">
+    <tr class=table-dark>
+        <th style="text-align: center" scope="col">Name</th>
+        <th style="text-align: center" scope="col">Admin ID</th>
+        <th style="text-align: center" scope="col">Erstellungsdatum</th>
+        <th style="text-align: center" scope="col"></th>
+    </tr>
+        </thead>
+         <tbody>
+        @foreach (var admin in Model)
+                {
+                    <tr>
+                    <td style="text-align: center">
+                        @admin.Name
+                    </td> 
+                    <td style="text-align: center">
+                        @admin.AdminID
+                    </td>
+                     <td style="text-align: center">
+                        @admin.DateJoined.Date.ToString("dd.MM.yy")
+                        </td>
+                     <td style="text-align: center">
+                        <div class="form-group">
+                           <a class="btn btn-outline-light" asp-controller="Admin" asp-action="EditAdmin" asp-route-AdminID="@admin.AdminID">
+                               <i class="bi bi-pencil-square"></i>
+                               </a>
+                               &nbsp
+                                 <a class="btn btn-outline-warning" asp-controller="Admin" asp-action="DeleteAdmin" asp-route-AdminID="@admin.AdminID">
+                                     <i class="bi bi-trash3"></i>                               
+                                     </a>
+                      </div>
+                     </td>
+                    </tr>
+        }
+  </tbody>
+</table>
+</body>

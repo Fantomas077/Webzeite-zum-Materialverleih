@@ -1,0 +1,60 @@
+﻿@model BookingPlatform.Models.Resources
+
+<form method="post">
+    <div class="card container pt-4">
+        <div class="card-header bg-secondary text-light m-lg-0 row" style="background-color:black">
+            <div class="col-12 col-md-6">
+                <h1 class="text-white-50">@Model.Name</h1>
+
+            </div>
+     
+        
+
+        </div>
+
+
+        <div class="card-body row container">
+            <div class="row container p-2">
+                <div class="row">
+                    <div class="col-8 col-lg-8">
+                        <div class="row pl-2">
+                            <p class="text-info">@Html.Raw(Model.Description)</p>
+
+                        </div>
+
+                    </div>
+                    <div class="col-12 col-lg-3 offset-lg-1 text-center">
+                        <img src="/@Model.ImageName" width="100%" class="rounded" />
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+        </div>
+        <div class="card-footer">
+            <a asp-controller="User" asp-action="CreateBooking" asp-route-ResourceID="@Model?.ResourceID" class="btn btn-primary" style="width:150px"><i class="bi bi-calendar-plus"></i> Buchen</a>
+@*
+            <a  asp-action="CreateBooking" class="btn btn-primary"  asp-route-id=""><i class="bi bi-calendar-plus"></i>Buchen</a> |*@
+            <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+        
+
+        </div>
+       
+
+
+    </div>
+ 
+
+
+
+
+
+
+
+
+
+</form>
